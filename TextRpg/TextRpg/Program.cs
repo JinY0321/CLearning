@@ -26,6 +26,7 @@
             Console.WriteLine("1. 상태 보기");
             Console.WriteLine("2. 인벤토리");
             Console.WriteLine("3. 상점");
+            Console.WriteLine("4. 휴식하기");
             Console.Write("원하시는 행동을 입력해주세요: ");
 
             string input = Console.ReadLine();
@@ -34,6 +35,7 @@
                 case "1": ShowStatus(); break;
                 case "2": ShowInventory(); break;
                 case "3": OpenShop(); break;
+                case "4": RestMenu(); break;
                 default: Console.WriteLine("잘못된 입력입니다."); Console.ReadKey(); break;
             }
         }
@@ -79,10 +81,10 @@
 
         string input = Console.ReadLine();
         if (input == "1")
-            ManageEquipment();
+            EquipmentManagement();
     }
 
-    static void ManageEquipment()
+    static void EquipmentManagement()
     {
         Console.Clear();
         Console.WriteLine("인벤토리 - 장착 관리");
@@ -178,5 +180,38 @@
             Console.WriteLine("잘못된 입력입니다.");
         }
         Console.ReadKey();
+    }
+
+    static void RestMenu()
+    {
+        Console.Clear();
+        Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다. (보유 골드 : {gold} G)");
+        Console.WriteLine();
+        Console.WriteLine("1. 휴식하기");
+        Console.WriteLine("0. 나가기");
+        Console.WriteLine("원하시는 행동을 입력해주세요: ");
+        
+        string input = Console.ReadLine();
+
+        switch (input)
+        {
+            case "1": Rest(); break;
+            case "0": return;
+            default: Console.WriteLine("잘못된 입력입니다."); Console.ReadKey(); break;
+        }
+
+    }
+    static void Rest()
+    {
+        if (gold >= 500)
+        {
+            gold -= 500;
+            health = 100;
+            Console.WriteLine("휴식을 완료했습니다.");
+        }
+        else
+        {
+            Console.WriteLine("Gold 가 부족합니다.");
+        }
     }
 }
