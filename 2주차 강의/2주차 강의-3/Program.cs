@@ -16,21 +16,30 @@
             //}
 
             //코드 스니펫 while문 기초
-            int i = 0;
-            while (i < 10)
-            {
-                Console.WriteLine(i);
-                i++;
-            }
-            //while 문 예시
-            int count = 0;
-            while (count < 10)
-            {
-                Console.WriteLine("적을 처치했습니다! 남은 적 수: " + (10 - count - 1));
-                count++;
-            }
+            //int i = 0;
+            //while (i < 10)
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //}
+            // //구구단 출력.
+            //for (int i = 2; i <= 9; i++)
+            //{
+            //    for (int j = 1; j <= 9; j++)
+            //    {
+            //        Console.WriteLine(i + " x " + j + " = " + (i * j));
+            //    }
+            //}
 
-            Console.WriteLine("축하합니다! 게임에서 승리하셨습니다!");
+            ////while 문 예시
+            //int count = 0;
+            //while (count < 10)
+            //{
+            //    Console.WriteLine("적을 처치했습니다! 남은 적 수: " + (10 - count - 1));
+            //    count++;
+            //}
+
+            //Console.WriteLine("축하합니다! 게임에서 승리하셨습니다!");
 
             //for문 vs while 문
             //int sum = 0;
