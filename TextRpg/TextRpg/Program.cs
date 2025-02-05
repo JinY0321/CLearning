@@ -1,24 +1,26 @@
 ﻿class Program
 {
+    //기본 정보
     static int attackPower = 10;
     static int defensePower = 5;
     static int health = 100;
     static int gold = 1500;
-    static List<string> inventory = new List<string>();
-    static Dictionary<string, (int attack, int defense, int price)> shopItems = new Dictionary<string, (int, int, int)>
+    static List<string> inventory = new List<string>(); //인벤토리 리스트
+    static Dictionary<string, (int attack, int defense, int price)> shopItems = new Dictionary<string, (int, int, int)> //상점 아이템 리스트 디렉토리
     {
         { "수련자 갑옷", (0, 5, 1000) },
         { "무쇠갑옷", (0, 9, 0) },
         { "스파르타의 갑옷", (0, 15, 3500) },
         { "낡은 검", (2, 0, 600) },
         { "청동 도끼", (5, 0, 1500) },
-        { "스파르타의 창", (7, 0, 0) }
+        { "스파르타의 창", (7, 0, 0) },
+        { "개발자의 눈물", (20,20,15000) }
     };
-    static List<string> equippedItems = new List<string>();
+    static List<string> equippedItems = new List<string>(); //아이템 관리
 
     static void Main()
     {
-        while (true)
+        while (true) //게임 시작
         {
             Console.Clear();
             Console.WriteLine("스파르타 마을에 오신 여러분 환영합니다.");
@@ -41,7 +43,7 @@
         }
     }
 
-    static void ShowStatus()
+    static void ShowStatus() //상태 보기
     {
         Console.Clear();
         Console.WriteLine("상태 보기");
@@ -71,7 +73,7 @@
 
         for (int i = 0; i < inventory.Count; i++)
         {
-            string equipped = equippedItems.Contains(inventory[i]) ? "[E] " : "";
+            string equipped = equippedItems.Contains(inventory[i]) ? "[E] " : ""; //아이템이 장착 되어있는지 확인 할 수 있도록.
             Console.WriteLine($"- {i + 1} {equipped}{inventory[i]}");
         }
 
@@ -84,7 +86,7 @@
             EquipmentManagement();
     }
 
-    static void EquipmentManagement()
+    static void EquipmentManagement()//장비 관리 클래스
     {
         Console.Clear();
         Console.WriteLine("인벤토리 - 장착 관리");
@@ -101,7 +103,7 @@
 
         if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= inventory.Count)
         {
-            string selectedItem = inventory[choice - 1];
+            string selectedItem = inventory[choice - 1]; //배열은 0부터 이므로, 인덱스 조정.
 
             if (equippedItems.Contains(selectedItem))
             {
@@ -123,7 +125,7 @@
     }
 
 
-    static void OpenShop()
+    static void OpenShop() //상점 클래스
     {
         Console.Clear();
         Console.WriteLine("상점");
@@ -182,7 +184,7 @@
         Console.ReadKey();
     }
 
-    static void RestMenu()
+    static void RestMenu() //휴식 메뉴
     {
         Console.Clear();
         Console.WriteLine($"500 G 를 내면 체력을 회복할 수 있습니다. (보유 골드 : {gold} G)");
