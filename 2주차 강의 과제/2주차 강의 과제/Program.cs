@@ -12,6 +12,10 @@
 
             Console.WriteLine("숫자 맞추기 게임을 시작.(1~100)");
 
+            while (!isNumber)
+            {
+
+            }
         }
     }
 }
